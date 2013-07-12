@@ -1,0 +1,74 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>me.kyle.burnett</groupId>
+	<artifactId>Sky-Block-Wars</artifactId>
+	<version>1.0.0</version>
+	<name>Sky-Block Wars</name>
+	<description>Sky-Block Wars is a plugin that allows 4 teams to go head to head
+    on 4 sky-blocks. It is a fully automated plugin apart from setting up the arenas
+    and has a in game scoreboard and leader board to show who is the ultimate warrior.
+    Arenas auto reset and once setup should be fully automated and not need any attention.
+    </description>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.bukkit</groupId>
+			<artifactId>bukkit</artifactId>
+			<version>1.6.2-R0.1-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.bukkit</groupId>
+			<artifactId>craftbukkit</artifactId>
+			<version>1.6.2-R0.1-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.sk89q</groupId>
+			<artifactId>worldedit</artifactId>
+			<version>5.5.8-SNAPSHOT</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.earth2me</groupId>
+			<artifactId>essentials</artifactId>
+			<version>2.9</version>
+			<!-- this is a hack b/c essentials is not on maven 
+			uncomment the correct line below for your system and do not commit it to git -->
+			<scope>system</scope>
+			<!-- <systemPath>D:\Minecraft\Plugins\Essentials.jar</systemPath> -->
+			<!-- <systemPath>\lib\Essentials.jar</systemPath> -->
+			<systemPath>E:\Minecraft\Plugins\Essentials.jar</systemPath>
+		</dependency>
+	</dependencies>
+	<repositories>
+		<repository>
+			<id>bukkit-repo</id>
+			<url>http://repo.bukkit.org/content/groups/public</url>
+		</repository>
+		<repository>
+			<id>sk89w repo</id>
+			<url>http://maven.sk89q.com/repo</url>
+			<!-- <url>http://maven.sk89q.com/artifactory/libs-release-local</url> -->
+		</repository>
+	</repositories>
+	<build>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.1</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>

@@ -1,6 +1,6 @@
 name: Sky-Block Warriors
 main: me.kyle.burnett.SkyBlockWarriors.Main
-version: 1.0
+version: ${project.version}
 author: Burnett
 description: >
              Sky block warrior plugin.
