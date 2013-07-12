@@ -11,7 +11,6 @@ import me.kyle.burnett.SkyBlockWarriors.Events.PlayerJoinArenaEvent;
 import me.kyle.burnett.SkyBlockWarriors.Events.PlayerLeaveArenaEvent;
 import me.kyle.burnett.SkyBlockWarriors.Utils.ChestFiller;
 import me.kyle.burnett.SkyBlockWarriors.Utils.WorldEditUtility;
-import net.minecraft.server.v1_6_R2.Packet54PlayNoteBlock;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -19,7 +18,6 @@ import org.bukkit.Location;
 import org.bukkit.OfflinePlayer;
 import org.bukkit.World;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.craftbukkit.v1_6_R2.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.scoreboard.Scoreboard;
 import org.bukkit.scoreboard.ScoreboardManager;
@@ -502,17 +500,15 @@ public class Game {
 		return this.unteamed;
 	}
 	
-	public void playerSoundGame(){
-		Packet54PlayNoteBlock packet = new Packet54PlayNoteBlock(1, 1, 1, 1, 1, 1);
-		
-		for(int x = 0; x < this.players.size(); x++){
-			
+	public void playerSoundGame() {
+		Location loc = new Location(null, 1, 1, 1);
+
+		for (int x = 0; x < this.players.size(); x++) {
 			Player p = Bukkit.getServer().getPlayer(this.players.get(x));
-		
-			((CraftPlayer)p).getHandle().playerConnection.sendPacket(packet);
+			p.playNote(loc, (byte) 1, (byte) 1);
 		}
 	}
-	
+
 	public void checkStart(){
 		
 		if(getPlayers().size() >= Main.getInstance().Config.getInt("Auto-Start-Players")){
